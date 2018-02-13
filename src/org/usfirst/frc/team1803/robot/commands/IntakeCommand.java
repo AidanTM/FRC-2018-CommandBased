@@ -4,7 +4,6 @@ import org.usfirst.frc.team1803.robot.OI;
 import org.usfirst.frc.team1803.robot.Robot;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -13,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class IntakeCommand extends Command {
 	
-	Joystick controller = OI.controller;
+	XboxController controller = OI.controller;
 
     public IntakeCommand() {
         requires(Robot.intakeSubsystem);

@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team1803.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	public static Joystick controller = new Joystick(0);
+	public static XboxController controller = new XboxController(0);
 	
 	JoystickButton xboxAButton = new JoystickButton(controller, 1);
 	//// CREATING BUTTONS

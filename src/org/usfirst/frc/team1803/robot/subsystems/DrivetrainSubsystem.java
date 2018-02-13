@@ -42,6 +42,7 @@ public class DrivetrainSubsystem extends Subsystem {
     	leftBack.setSafetyEnabled(false);
     	rightFront.setSafetyEnabled(false);
     	rightBack.setSafetyEnabled(false);
+    	drivetrain.setSafetyEnabled(false);
     	
     	setDefaultCommand(new DriveCommand());
     }

@@ -8,12 +8,14 @@
 package org.usfirst.frc.team1803.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team1803.robot.commands.ExampleCommand;
+
+import org.usfirst.frc.team1803.robot.commands.DriveCommand;
 import org.usfirst.frc.team1803.robot.subsystems.*;
 
 /**
@@ -24,8 +26,6 @@ import org.usfirst.frc.team1803.robot.subsystems.*;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
@@ -33,6 +33,9 @@ public class Robot extends TimedRobot {
 
 	public static DrivetrainSubsystem drivetrainSubsystem = new DrivetrainSubsystem();
 	public static IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+	public static BucketSubsystem bucketSubsystem = new BucketSubsystem();
+	
+	public static int testing = 0;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -41,11 +44,9 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		m_oi = new OI();
-		m_chooser.addDefault("Default Auto", new ExampleCommand());
+		m_chooser.addDefault("Default Auto", new DriveCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
-		
-		DriverStation.reportWarning("test" + OI.controller.toString(), false);
 	}
 
 	/**
@@ -61,7 +62,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
-		DriverStation.reportWarning(OI.controller.toString(), false);
 	}
 
 	/**
@@ -124,6 +124,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		
+		DriverStation.reportWarning("TriggerAxis Left: " + OI.controller.getTriggerAxis(Hand.kLeft), false);
+		DriverStation.reportWarning("TriggerAxis Right: " + OI.controller.getTriggerAxis(Hand.kRight), false);
 	}
 }

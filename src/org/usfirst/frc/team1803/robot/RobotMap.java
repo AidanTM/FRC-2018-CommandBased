@@ -21,10 +21,15 @@ public class RobotMap {
 	
 	public static Talon leftFrontDrivetrainMotor = new Talon(1);
 	public static Talon leftBackDrivetrainMotor = new Talon(2);
+	
 	public static Talon rightFrontDrivetrainMotor = new Talon(3);
 	public static Talon rightBackDrivetrainMotor = new Talon(4);
-	public static Talon intakeLeftMotor = new Talon(5);
-	public static Talon intakeRightMotor = new Talon(6);
+	
+	public static Talon leftIntakeMotor = new Talon(5);
+	public static Talon rightIntakeMotor = new Talon(6);
+	
+	public static Talon bucketMotor = new Talon(7);
+	
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
