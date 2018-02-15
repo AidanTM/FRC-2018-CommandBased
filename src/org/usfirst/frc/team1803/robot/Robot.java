@@ -34,8 +34,9 @@ public class Robot extends TimedRobot {
 	public static DrivetrainSubsystem drivetrainSubsystem = new DrivetrainSubsystem();
 	public static IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
 	public static BucketSubsystem bucketSubsystem = new BucketSubsystem();
+	public static GyroscopeSubsystem gyroscopeSubsystem = new GyroscopeSubsystem();
 	
-	public static int testing = 0;
+	int testing = 0;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -124,7 +125,13 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		DriverStation.reportWarning("TriggerAxis Left: " + OI.controller.getTriggerAxis(Hand.kLeft), false);
-		DriverStation.reportWarning("TriggerAxis Right: " + OI.controller.getTriggerAxis(Hand.kRight), false);
+		//.reportWarning("TriggerAxis Left: " + OI.controller.getTriggerAxis(Hand.kLeft), false);
+		//DriverStation.reportWarning("TriggerAxis Right: " + OI.controller.getTriggerAxis(Hand.kRight), false);
+		testing++;
+		if (testing > 200)
+		{
+			DriverStation.reportWarning("Gyro:" + gyroscopeSubsystem.getAngle(), false);
+			testing = 0;
+		}
 	}
 }

@@ -16,9 +16,6 @@ import edu.wpi.first.wpilibj.Talon;
  * floating around.
  */
 public class RobotMap {
-	
-//	public static XboxController controller = new XboxController(0);
-	
 	public static Talon leftFrontDrivetrainMotor = new Talon(1);
 	public static Talon leftBackDrivetrainMotor = new Talon(2);
 	
@@ -29,14 +26,4 @@ public class RobotMap {
 	public static Talon rightIntakeMotor = new Talon(6);
 	
 	public static Talon bucketMotor = new Talon(7);
-	
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
-
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
 }

@@ -3,8 +3,8 @@ package org.usfirst.frc.team1803.robot.commands;
 import org.usfirst.frc.team1803.robot.OI;
 import org.usfirst.frc.team1803.robot.Robot;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class IntakeCommand extends Command {
 	
 	XboxController controller = OI.controller;
+	double speedVal;
 
     public IntakeCommand() {
         requires(Robot.intakeSubsystem);
@@ -24,7 +25,9 @@ public class IntakeCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intakeSubsystem.intakeSpeed(controller.getRawAxis(2));
+    	speedVal = OI.controller.getTriggerAxis(Hand.kLeft);
+    	if (OI.controller.getAButton()) speedVal *= -1;
+    	Robot.intakeSubsystem.intakeSpeed(speedVal);
     }
 
     // Make this return true when this Command no longer needs to run execute()
